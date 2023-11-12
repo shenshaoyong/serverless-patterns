@@ -8,7 +8,10 @@ echo "Publishing the layer. Please wait ..."
 aws lambda publish-layer-version --layer-name $layer_name --zip-file fileb://anthropic-layer.zip
 
 # Take Layer ARN
-read -p "Enter the LayerVersionArn from the above command: " layer_arn
+read -p "Enter the prior LayerVersionArn from the prior above command: " layer_arn
+
+# Take Layer ARN
+read -p "Enter the LayerVersionArn from the above command: " layer_arn2
 
 # Take Lambda Function Name
 read -p "Enter the Lambda function name from the SAM deploy output: " function_name
@@ -17,4 +20,4 @@ read -p "Enter the Lambda function name from the SAM deploy output: " function_n
 # Add the new layer to your Lambda function's configuration
 
 echo "Adding the new layer to your Lambda function's configuration. Please wait ..."
-aws lambda update-function-configuration --function-name $function_name --layers $layer_arn
+aws lambda update-function-configuration --function-name $function_name --layers $layer_arn $layer_arn2
