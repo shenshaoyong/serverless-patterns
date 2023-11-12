@@ -180,7 +180,7 @@ curl -d '{"prompt": "Please write 5 lines on Solar Systems"}' -H 'Content-Type: 
 The API returns a response with generated content. Such as (Your out may vary): 
 
 ```json
-{"generated-text": {"completion": " Here is a 5 line paragraph on solar systems:\n\nThe solar system consists of the sun and everything that orbits around it. This includes planets, comets, asteroids, and other small objects like dust and gas. The sun is a star at the center of our solar system and is responsible for holding everything together with its gravitational pull. The planets in our solar system are Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune. They all orbit the sun in elliptical paths at varying distances. Our solar system is located in the Milky Way galaxy which contains billions of other stars and solar systems.", "stop_reason": "stop_sequence"}}
+{"generated-text": {"completion": " Here is a 5 line paragraph on solar systems:\n\nThe solar system consists of the sun and everything that orbits around it. This includes planets, comets, asteroids, and other small objects like dust and gas. The sun is a star at the center of our solar system and is responsible for holding everything together with its gravitational pull. The planets in our solar system are Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune. They all orbit the sun in elliptical paths at varying distances. Our solar system is located in the Milky Way galaxy which contains billions of other stars and solar systems.", "stop_reason": "stop_sequence","usage": {"prompt_tokens": x, "completion_tokens": xxx}}}
 ```
 
 
@@ -191,8 +191,9 @@ The API returns a response with generated content. Such as (Your out may vary):
 ```bash
 sam delete
 ```
-2. Delete the Lambda layer version using the `delete_lambda_layer.sh` script. You may have to give execution permission to the file. You will need to pass the Lambda layer name and the version in the inpout when requested:
+2. Delete the Lambda layer version using the `delete_lambda_layer.sh` script twice to delete two layers. You may have to give execution permission to the file. You will need to pass the Lambda layer name and the version in the inpout when requested:
 ```bash
+./delete_lambda_layer.sh
 ./delete_lambda_layer.sh
 ```
 
